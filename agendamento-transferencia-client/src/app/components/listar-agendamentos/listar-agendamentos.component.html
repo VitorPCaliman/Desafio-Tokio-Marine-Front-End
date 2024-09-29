@@ -1,1 +1,35 @@
-<p>listar-agendamentos works!</p>
+<div class="container">
+    <h2>Lista de Agendamentos</h2>
+    <mat-card>
+      <table mat-table [dataSource]="agendamentos" class="mat-elevation-z8">
+        <ng-container matColumnDef="contaOrigem">
+          <th mat-header-cell *matHeaderCellDef> Conta Origem </th>
+          <td mat-cell *matCellDef="let agendamento"> {{agendamento.contaOrigem}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="contaDestino">
+          <th mat-header-cell *matHeaderCellDef> Conta Destino </th>
+          <td mat-cell *matCellDef="let agendamento"> {{agendamento.contaDestino}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="valorTransferencia">
+          <th mat-header-cell *matHeaderCellDef> Valor </th>
+          <td mat-cell *matCellDef="let agendamento"> {{agendamento.valorTransferencia}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="taxa">
+          <th mat-header-cell *matHeaderCellDef> Taxa </th>
+          <td mat-cell *matCellDef="let agendamento"> {{agendamento.taxa}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="dataTransferencia">
+          <th mat-header-cell *matHeaderCellDef> Data Transferência </th>
+          <td mat-cell *matCellDef="let agendamento"> {{agendamento.dataTransferencia | date}} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="['contaOrigem', 'contaDestino', 'valorTransferencia', 'taxa', 'dataTransferencia']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['contaOrigem', 'contaDestino', 'valorTransferencia', 'taxa', 'dataTransferencia'];"></tr>
+      </table>
+    </mat-card>
+  </div>
+  
