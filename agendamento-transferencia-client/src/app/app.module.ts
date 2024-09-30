@@ -20,6 +20,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +46,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatSnackBarModule,
     MatDividerModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   providers: [
     MatDatepickerModule, 

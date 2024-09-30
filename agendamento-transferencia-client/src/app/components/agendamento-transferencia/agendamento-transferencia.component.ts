@@ -16,6 +16,8 @@ export class AgendamentoTransferenciaComponent {
     dataTransferencia: new Date()
   };
 
+  loading: boolean = false;
+
   constructor(private transferenciaService: TransferenciaService, private snackBar: MatSnackBar) {}
 
   agendarTransferencia() {
@@ -24,23 +26,33 @@ export class AgendamentoTransferenciaComponent {
       return;
     }
 
+    this.loading = true; // Ativa o spinner
+
     this.transferenciaService.agendarTransferencia(this.transferencia).subscribe(
       response => {
         this.openSnackBar('Transferência agendada com sucesso!', 'Sucesso');
+        this.removeSpinnerAfterDelay();
       },
       error => {
         this.openSnackBar('Erro ao agendar transferência.', 'Erro');
+        this.removeSpinnerAfterDelay();
       }
     );
   }
 
   openSnackBar(message: string, action: string) {
-    let icon = action === 'Erro' ? '🚫' : '✅'; 
+    let icon = action === 'Erro' ? '🚫' : '✅';
     this.snackBar.open(`${icon} ${message}`, action, {
       duration: 3000,
       verticalPosition: 'bottom',
       horizontalPosition: 'center',
       panelClass: action === 'Erro' ? ['snackbar-error'] : ['snackbar-success'],
     });
+  }
+
+  removeSpinnerAfterDelay() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
   }
 }

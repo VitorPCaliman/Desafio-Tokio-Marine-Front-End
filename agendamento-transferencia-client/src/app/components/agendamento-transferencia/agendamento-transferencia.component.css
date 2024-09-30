@@ -41,3 +41,8 @@ td {
 input {
   visibility: visible;
 }
+
+.spinner {
+  display: block;
+  margin: 20px auto; 
+}

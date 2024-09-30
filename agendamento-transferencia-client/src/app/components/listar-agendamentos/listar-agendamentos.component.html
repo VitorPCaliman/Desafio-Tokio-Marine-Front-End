@@ -1,5 +1,7 @@
 <div class="container">
     <h2>Lista de Agendamentos</h2>
+    <mat-divider></mat-divider>
+    <br>
     <mat-card>
       <table mat-table [dataSource]="agendamentos" class="mat-elevation-z8">
         <ng-container matColumnDef="contaOrigem">
@@ -30,5 +32,11 @@
         <tr mat-header-row *matHeaderRowDef="['contaOrigem', 'contaDestino', 'valorTransferencia', 'taxa', 'dataTransferencia']"></tr>
         <tr mat-row *matRowDef="let row; columns: ['contaOrigem', 'contaDestino', 'valorTransferencia', 'taxa', 'dataTransferencia'];"></tr>
       </table>
+      <mat-paginator 
+      [length]="totalElements"         
+      [pageSize]="pageSize"             
+      [pageSizeOptions]="[5, 10, 20]"   
+      (page)="onPageChange($event)"> 
+    </mat-paginator>
     </mat-card>
   </div>

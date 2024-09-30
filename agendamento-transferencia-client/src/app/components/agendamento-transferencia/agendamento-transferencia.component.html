@@ -1,5 +1,7 @@
 <div class="container">
   <h2>Agendar Transferência</h2>
+  <mat-divider></mat-divider>
+  <br>
   <mat-card>
     <form (ngSubmit)="agendarTransferencia()" #form="ngForm">
       <table class="full-width">
@@ -61,5 +63,6 @@
 
       <button mat-flat-button type="submit" [disabled]="form.invalid">Agendar Transferência</button>
     </form>
+    <mat-spinner *ngIf="loading" color="primary" diameter="40" class="spinner"></mat-spinner>
   </mat-card>
 </div>
