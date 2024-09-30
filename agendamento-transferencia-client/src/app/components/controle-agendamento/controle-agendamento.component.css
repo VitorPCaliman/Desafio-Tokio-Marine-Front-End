@@ -1,0 +1,19 @@
+.container {
+  width: auto;
+  margin: 20px auto;
+  text-align: center;
+}
+
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.span {
+  color: #007BFF; 
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+  display: flex;
+}

@@ -1,4 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4; /* Fundo claro */
+  color: #333; 
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+h1, h2 {
+  text-align: center;
+  color: #007BFF; 
+}
+
+.container {
+  width: auto;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.table th {
+  background-color: #007BFF;
+  color: white;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+::ng-deep.snackbar-success {
+  background-color: rgba(76, 175, 80, 0.8) !important;
+  color: white !important;
+}
+
+::ng-deep .snackbar-error {
+  background-color: rgba(244, 67, 54, 0.8) !important; 
+  color: white !important;
+}
