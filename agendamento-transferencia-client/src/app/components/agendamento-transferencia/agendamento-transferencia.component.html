@@ -1,22 +1,56 @@
 <div class="container">
   <h2>Agendar Transferência</h2>
   <mat-card>
-    <form (ngSubmit)="agendarTransferencia()">
+    <form (ngSubmit)="agendarTransferencia()" #form="ngForm">
       <table class="full-width">
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Conta Origem</mat-label>
-          <input matInput [(ngModel)]="transferencia.contaOrigem" name="contaOrigem" required/>
+          <input 
+            matInput 
+            [(ngModel)]="transferencia.contaOrigem" 
+            name="contaOrigem" 
+            pattern="[0-9]*" 
+            required
+            #contaOrigem="ngModel"
+          />
+          <mat-error *ngIf="contaOrigem.invalid && contaOrigem.touched">
+            A conta de origem deve conter apenas números.
+          </mat-error>
         </mat-form-field>
+        
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Conta Destino</mat-label>
-          <input matInput [(ngModel)]="transferencia.contaDestino" name="contaDestino" required/>
+          <input 
+            matInput 
+            [(ngModel)]="transferencia.contaDestino" 
+            name="contaDestino" 
+            pattern="[0-9]*" 
+            required
+            #contaDestino="ngModel"
+          />
+          <mat-error *ngIf="contaDestino.invalid && contaDestino.touched">
+            A conta de destino deve conter apenas números.
+          </mat-error>
         </mat-form-field>
       </table>
+
       <table class="full-width">
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Valor da Transferência</mat-label>
-          <input matInput type="number" [(ngModel)]="transferencia.valorTransferencia" name="valorTransferencia" required/>
-        </mat-form-field> 
+          <input 
+            matInput 
+            [(ngModel)]="transferencia.valorTransferencia" 
+            name="valorTransferencia" 
+            required
+            currencyMask 
+            [options]="{ prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ',', precision: 2 }"
+            #valorTransferenciaInput="ngModel" 
+          />
+          <mat-error *ngIf="valorTransferenciaInput.invalid && valorTransferenciaInput.touched">
+            O valor deve ser um número positivo.
+          </mat-error>
+        </mat-form-field>
+        
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Data da Transferência</mat-label>
           <input matInput [(ngModel)]="transferencia.dataTransferencia" [matDatepicker]="picker" name="dataTransferencia" required/>
@@ -24,7 +58,8 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </table>
-      <button mat-raised-button color="primary" type="submit">Agendar Transferência</button>
+
+      <button mat-flat-button type="submit" [disabled]="form.invalid">Agendar Transferência</button>
     </form>
   </mat-card>
 </div>

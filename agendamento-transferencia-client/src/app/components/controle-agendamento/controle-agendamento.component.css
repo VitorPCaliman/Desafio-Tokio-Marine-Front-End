@@ -1,13 +1,19 @@
 .container {
-  max-width: 600px;
+  width: auto;
   margin: 20px auto;
   text-align: center;
 }
 
-.button-group {
-  margin-bottom: 20px;
-}
 
 h2 {
   margin-bottom: 20px;
+}
+
+.span {
+  color: #007BFF; 
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+  display: flex;
 }

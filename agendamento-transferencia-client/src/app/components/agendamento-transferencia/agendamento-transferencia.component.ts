@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Transferencia } from '../../models/transferencia';
 import { TransferenciaService } from '../../services/transferencia.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-agendamento-transferencia',
@@ -15,18 +16,31 @@ export class AgendamentoTransferenciaComponent {
     dataTransferencia: new Date()
   };
 
-  constructor(private transferenciaService: TransferenciaService) {}
+  constructor(private transferenciaService: TransferenciaService, private snackBar: MatSnackBar) {}
 
   agendarTransferencia() {
-    alert('Data selecionada: ' + this.transferencia.dataTransferencia);
+    if (this.transferencia.valorTransferencia <= 0) {
+      this.openSnackBar('O valor da transferência deve ser positivo.', 'Erro');
+      return;
+    }
 
     this.transferenciaService.agendarTransferencia(this.transferencia).subscribe(
       response => {
-        alert('Transferência agendada com sucesso!');
+        this.openSnackBar('Transferência agendada com sucesso!', 'Sucesso');
       },
       error => {
-        alert('Erro ao agendar transferência.');
+        this.openSnackBar('Erro ao agendar transferência.', 'Erro');
       }
     );
+  }
+
+  openSnackBar(message: string, action: string) {
+    let icon = action === 'Erro' ? '🚫' : '✅'; 
+    this.snackBar.open(`${icon} ${message}`, action, {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center',
+      panelClass: action === 'Erro' ? ['snackbar-error'] : ['snackbar-success'],
+    });
   }
 }

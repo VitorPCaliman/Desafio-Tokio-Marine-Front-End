@@ -11,7 +11,7 @@ h1, h2 {
 
 .container {
   width: auto;
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
   background: white;
@@ -64,4 +64,14 @@ button:hover {
 
 .table tr:hover {
   background-color: #f1f1f1;
+}
+
+::ng-deep.snackbar-success {
+  background-color: rgba(76, 175, 80, 0.8) !important;
+  color: white !important;
+}
+
+::ng-deep .snackbar-error {
+  background-color: rgba(244, 67, 54, 0.8) !important; 
+  color: white !important;
 }
