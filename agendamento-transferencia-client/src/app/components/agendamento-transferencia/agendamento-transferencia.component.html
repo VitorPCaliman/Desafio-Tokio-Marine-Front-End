@@ -1,30 +1,30 @@
 <div class="container">
-    <h2>Agendar Transferência</h2>
-    <mat-card>
-      <form (ngSubmit)="agendarTransferencia()">
-        <mat-form-field appearance="fill">
+  <h2>Agendar Transferência</h2>
+  <mat-card>
+    <form (ngSubmit)="agendarTransferencia()">
+      <table class="full-width">
+        <mat-form-field appearance="fill" class="full-width">
           <mat-label>Conta Origem</mat-label>
-          <input matInput [(ngModel)]="transferencia.contaOrigem" name="contaOrigem" required />
+          <input matInput [(ngModel)]="transferencia.contaOrigem" name="contaOrigem" required/>
         </mat-form-field>
-  
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="full-width">
           <mat-label>Conta Destino</mat-label>
-          <input matInput [(ngModel)]="transferencia.contaDestino" name="contaDestino" required />
+          <input matInput [(ngModel)]="transferencia.contaDestino" name="contaDestino" required/>
         </mat-form-field>
-  
-        <mat-form-field appearance="fill">
+      </table>
+      <table class="full-width">
+        <mat-form-field appearance="fill" class="full-width">
           <mat-label>Valor da Transferência</mat-label>
-          <input matInput type="number" [(ngModel)]="transferencia.valorTransferencia" name="valorTransferencia" required />
-        </mat-form-field>
-  
-        <mat-form-field appearance="fill">
+          <input matInput type="number" [(ngModel)]="transferencia.valorTransferencia" name="valorTransferencia" required/>
+        </mat-form-field> 
+        <mat-form-field appearance="fill" class="full-width">
           <mat-label>Data da Transferência</mat-label>
-          <input matInput [(ngModel)]="transferencia.dataTransferencia" [matDatepicker]="picker" required />
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <input matInput [(ngModel)]="transferencia.dataTransferencia" [matDatepicker]="picker" name="dataTransferencia" required/>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-  
-        <button mat-raised-button color="primary" type="submit">Agendar Transferência</button>
-      </form>
-    </mat-card>
-  </div>  
+      </table>
+      <button mat-raised-button color="primary" type="submit">Agendar Transferência</button>
+    </form>
+  </mat-card>
+</div>

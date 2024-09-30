@@ -5,7 +5,7 @@ import { TransferenciaService } from '../../services/transferencia.service';
 @Component({
   selector: 'app-agendamento-transferencia',
   templateUrl: './agendamento-transferencia.component.html',
-  styleUrls: ['./agendamento-transferencia.component.css']
+  styleUrls: ['./agendamento-transferencia.component.css'],
 })
 export class AgendamentoTransferenciaComponent {
   transferencia: Transferencia = {
@@ -18,6 +18,8 @@ export class AgendamentoTransferenciaComponent {
   constructor(private transferenciaService: TransferenciaService) {}
 
   agendarTransferencia() {
+    alert('Data selecionada: ' + this.transferencia.dataTransferencia);
+
     this.transferenciaService.agendarTransferencia(this.transferencia).subscribe(
       response => {
         alert('Transferência agendada com sucesso!');

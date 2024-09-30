@@ -1,16 +1,16 @@
 <div class="container">
-    <h2>Gerenciamento de Transferências</h2>
-  
-    <div class="button-group">
-      <button mat-raised-button color="primary" (click)="toggleComponent()" *ngIf="showAgendar">
-        Consultar
-      </button>
-      <button mat-raised-button color="primary" (click)="toggleComponent()" *ngIf="!showAgendar">
-        Agendar
-      </button>
-    </div>
-  
-    <app-agendamento-transferencia *ngIf="showAgendar"></app-agendamento-transferencia>
-    <app-listar-agendamentos *ngIf="!showAgendar"></app-listar-agendamentos>
+  <h2>Gerenciamento de Transferências</h2>
+
+  <div class="button-group">
+    <button mat-raised-button color="primary" (click)="toggleComponent()" *ngIf="showAgendar">
+      Consultar
+    </button>
+    <button mat-raised-button color="primary" (click)="toggleComponent()" *ngIf="!showAgendar">
+      Agendar
+    </button>
   </div>
-  
+
+  <app-agendamento-transferencia *ngIf="showAgendar"></app-agendamento-transferencia>
+  <app-listar-agendamentos *ngIf="!showAgendar"></app-listar-agendamentos>
+</div>
+

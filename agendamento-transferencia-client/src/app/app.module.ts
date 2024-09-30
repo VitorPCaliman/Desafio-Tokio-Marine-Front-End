@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AgendamentoTransferenciaComponent } from './components/agendamento-transferencia/agendamento-transferencia.component';
 import { ListarAgendamentosComponent } from './components/listar-agendamentos/listar-agendamentos.component';
 import { ControleAgendamentoComponent } from './components/controle-agendamento/controle-agendamento.component';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { ControleAgendamentoComponent } from './components/controle-agendamento/
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     MatInputModule,
@@ -32,7 +35,10 @@ import { ControleAgendamentoComponent } from './components/controle-agendamento/
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule, 
+  MatNativeDateModule 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
