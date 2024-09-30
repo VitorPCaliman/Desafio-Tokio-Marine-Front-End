@@ -17,6 +17,7 @@ export class AgendamentoTransferenciaComponent {
   };
 
   loading: boolean = false;
+  minDate: Date = new Date();
 
   constructor(private transferenciaService: TransferenciaService, private snackBar: MatSnackBar) {}
 
@@ -34,8 +35,12 @@ export class AgendamentoTransferenciaComponent {
         this.removeSpinnerAfterDelay();
       },
       error => {
-        this.openSnackBar('Erro ao agendar transferência.', 'Erro');
-        this.removeSpinnerAfterDelay();
+        this.loading = false;
+        if (error.status === 400 && error.error === 'Data inválida para transferência. Não há taxa aplicável para datas acima de 50 dias.') {
+          this.openSnackBar('Data inválida. Não há taxa aplicável para a data selecionada acima de 50 dias.', 'Erro');
+        } else {
+          this.openSnackBar('Erro ao agendar transferência.', 'Erro');
+        }
       }
     );
   }

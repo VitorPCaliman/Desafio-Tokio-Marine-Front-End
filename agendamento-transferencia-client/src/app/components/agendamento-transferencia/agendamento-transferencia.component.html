@@ -55,7 +55,7 @@
         
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Data da Transferência</mat-label>
-          <input matInput [(ngModel)]="transferencia.dataTransferencia" [matDatepicker]="picker" name="dataTransferencia" required/>
+          <input matInput [(ngModel)]="transferencia.dataTransferencia" [min]="minDate" [matDatepicker]="picker" name="dataTransferencia" required/>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
